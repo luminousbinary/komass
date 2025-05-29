@@ -7,21 +7,24 @@ type FeedPostProps = {
     params: { id: string }
 };
 
-// export async function generateMetadata({ params }: FeedPostProps) {
-//     const data = await getPostById(params.id)
+export async function generateMetadata({ params }: FeedPostProps) {
+    const data = await getPostById(params.id);
 
-//     if (!data) return {}
+    if (!data) return {
+        title: "Post Not Found",
+        description: "The requested post could not be found."
+    };
 
-//     return {
-//         title: data.title,
-//         description: data.content,
-//         // openGraph: {
-//         //     title: data.title,
-//         //     description: data.content,
-//         //     // images: [{ url: data.thumbnail }]
-//         // }
-//     }
-// }
+    return {
+        title: data.title,
+        description: data.content.slice(0, 150), // Limit description to 150 characters
+        openGraph: {
+            title: data.title,
+            description: data.content.slice(0, 150),
+            images: [{ url: "/default_logo.png" }]
+        }
+    };
+}
 
 export default async function PostPage({ params }: FeedPostProps) {
     const data = await getPostById(params.id)
