@@ -14,14 +14,12 @@ export type Post = {
 
 export default function Post({ post }: { post: Post }) {
 
-  const authorName = post.author ? post.author.name : "Unknown author";
-
   return (
     <Link href={`/feed/${post.id}`} className="no-underline">
     <div  className="post-card p-3 text-black">
       <h2>{post.title}</h2>
       <div className="flex">
-        <h4>By {authorName}</h4>
+        <h4>By {post.author.name}</h4>
         <h4>| {post.createdAt}</h4>
       </div>
       <p > {post.content} </p>
