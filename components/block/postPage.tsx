@@ -42,6 +42,7 @@ export function PostComponent() {
                 });
             } catch (err) {
                 setError("An error occurred while fetching the post.");
+                console.log(err);
             }
         }
 
