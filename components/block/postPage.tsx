@@ -42,7 +42,6 @@ export function PostComponent() {
                 });
             } catch (err) {
                 setError("An error occurred while fetching the post.");
-                console.error("Error fetching post data:", err, metadata);
             }
         }
 
@@ -97,8 +96,16 @@ export function Loading() {
 
 export function Error({ message }: { message: string }) {
     return (
-        <div className="flex justify-center items-center h-screen">
-            <p className="text-lg font-medium text-red-500">{message}</p>
+        <div className="flex  flex-col justify-center items-center h-screen">
+            <p className="text-lg font-medium text-red-500">
+                <strong> 404 Page not found </strong> | 
+                {message}</p>
+                <button
+                    // onClick={() => router.back()}
+                    className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+                >
+                    Back
+                </button>
         </div>
     );
 }

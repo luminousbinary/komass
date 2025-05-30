@@ -7,10 +7,6 @@ import { PostComponent } from "@/components/block/postPage";
 
 export default function PostPage() {
     const [isLoading, setIsLoading] = useState(true);
-    const params = useParams();
-
-    console.log(params);
-
     useEffect(() => {
         const timer = setTimeout(() => {
             setIsLoading(false);
@@ -30,11 +26,3 @@ export default function PostPage() {
     );
 
 }
-
-// export function Error({ message }: { message: string }) {
-//     return (
-//         <div className="flex justify-center items-center h-screen">
-//             <p className="text-lg font-medium text-red-500">{message}</p>
-//         </div>
-//     );
-// }

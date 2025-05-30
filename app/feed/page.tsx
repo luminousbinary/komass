@@ -130,7 +130,7 @@ function FeedPageContent() {
 
       {/* All items loaded */}
       {visibleItems.length >= demoFeed.length && (
-        <p className="text-center text-gray-400 mt-6">🎉 You’re all caught up!</p>
+        <p className="text-center text-gray-400 mt-6">No more data</p>
       )}
     </div>
   );
