@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { useParams } from 'next/navigation';
 import { PostComponent } from "@/components/block/postPage";
 
-
 export default function PostPage() {
     const [isLoading, setIsLoading] = useState(true);
     const params = useParams();
