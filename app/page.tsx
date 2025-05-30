@@ -23,7 +23,7 @@ export default function Home() {
     if (email === "admin@yahoo.com" && password === "password") {
       setError("");
       console.log("✅ Logged in!")
-            router.push("/feed");
+            router.push("/feed/");
 
     } else {
       setError("Invalid email or password. \n Hint: try 'admin@yahoo.com' and 'password'")
@@ -40,7 +40,7 @@ export default function Home() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleLogin}>
+          <div >
             <div className="flex flex-col gap-6">
               <div className="grid gap-2">
                 <Label htmlFor="email">Email</Label>
@@ -76,12 +76,12 @@ export default function Home() {
                 <p className="text-sm text-red-500 text-center">{error}</p>
               )}
 
-              <Button type="submit" className="w-full">
+              <Button onClick={handleLogin} type="submit" className="w-full">
                 Login
               </Button>
               
             </div>
-          </form>
+          </div>
         </CardContent>
       </Card>
     </div>
