@@ -22,7 +22,9 @@ export default function PostPage() {
     }, []);
 
     if (isLoading) {
-        return <Loading />;
+        return( <div className="flex justify-center items-center h-screen">
+            <p className="text-lg font-medium">Loading...</p>
+        </div>) 
     }
 
     return (
@@ -31,19 +33,10 @@ export default function PostPage() {
 
 }
 
-
-export function Loading() {
-    return (
-        <div className="flex justify-center items-center h-screen">
-            <p className="text-lg font-medium">Loading...</p>
-        </div>
-    );
-}
-
-export function Error({ message }: { message: string }) {
-    return (
-        <div className="flex justify-center items-center h-screen">
-            <p className="text-lg font-medium text-red-500">{message}</p>
-        </div>
-    );
-}
+// export function Error({ message }: { message: string }) {
+//     return (
+//         <div className="flex justify-center items-center h-screen">
+//             <p className="text-lg font-medium text-red-500">{message}</p>
+//         </div>
+//     );
+// }

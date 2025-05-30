@@ -4,14 +4,17 @@ import { getAllPost } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useSearchParams, useRouter } from "next/navigation";
+import { PostData as PostInterface } from "@/lib/interface";
 
 
-function FeedPage() {
+import { Suspense } from "react";
+
+function FeedPageContent() {
   const ITEMS_PER_LOAD = 5;
   const router = useRouter();
-  const [visibleItems, setVisibleItems] = useState<{ id: string; title: string; content: string; category: string; createdAt: string; author: { name: string; } }[]>([]);
+  const [visibleItems, setVisibleItems] = useState<PostInterface[]>([]);
   const [page, setPage] = useState(1);
-  const [demoFeed, setDemoFeed] = useState<{ id: string; title: string; content: string; category: string; createdAt: string; author: { name: string; } }[]>([]);
+  const [demoFeed, setDemoFeed] = useState<PostInterface[]>([]);
 
   // Search and filter state
   const [searchTerm, setSearchTerm] = useState("");
@@ -49,7 +52,7 @@ function FeedPage() {
 
     const newUrl = `${window.location.pathname}?${queryParams.toString()}`;
     router.push(newUrl);
-  }, [searchTerm, selectedCategory]);
+  }, [searchTerm, selectedCategory, router]);
 
   useEffect(() => {
     const updateVisibleItems = () => {
@@ -133,4 +136,10 @@ function FeedPage() {
   );
 }
 
-export default FeedPage;
+export default function FeedPage() {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <FeedPageContent />
+    </Suspense>
+  );
+}
