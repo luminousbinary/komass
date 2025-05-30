@@ -1,6 +1,9 @@
 "use client";
 import Link from 'next/link';
+import { useState } from 'react';
+
 const Navbar = () => {
+    const [isDarkMode, setIsDarkMode] = useState(false);
 
     return (
         <nav className="bg-gray-800 text-white">
@@ -16,10 +19,13 @@ const Navbar = () => {
 
                 <div className="flex items-center">
                     <button
-                        onClick={() => document.documentElement.classList.toggle('dark')}
                         className="bg-gray-600 hover:bg-gray-500 text-white font-bold py-2 px-4 rounded"
+                        onClick={() => {
+                            const isDark = document.documentElement.classList.toggle('dark');
+                            setIsDarkMode(isDark);
+                        }}
                     >
-                        Toggle Theme
+                        {isDarkMode ? 'Dark Mode' : 'Light Mode'}
                     </button>
                 </div>
             </div>

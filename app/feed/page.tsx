@@ -17,7 +17,7 @@ function FeedPageContent() {
   // Search and filter state
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const defaultCategories = ["All", "React", "Next.js", "TypeScript"];
+  const defaultCategories = ["Select (Category)", "React", "Next.js", "TypeScript"];
 
 
   const { ref, inView } = useInView();
@@ -82,7 +82,7 @@ function FeedPageContent() {
       <h1 className="text-3xl font-bold mb-6"> Feed</h1>
       <input
         type="text"
-        placeholder="Search..."
+        placeholder="Input Your Search Here..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
         className="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-600"
