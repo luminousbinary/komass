@@ -1,9 +1,7 @@
 "use client";
 import Link from 'next/link';
-import { useState } from 'react';
-
 const Navbar = () => {
-        
+
     return (
         <nav className="bg-gray-800 text-white">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
@@ -13,7 +11,7 @@ const Navbar = () => {
                     </Link>
                 </div>
                 <div className="flex space-x-4">
-                  
+
                 </div>
 
                 <div className="flex items-center">
@@ -25,7 +23,7 @@ const Navbar = () => {
                     </button>
                 </div>
             </div>
-            
+
         </nav>
     );
 };
