@@ -1,5 +1,5 @@
 "use client";
-import { useState,useEffect } from "react";
+import { useState} from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button"
 import {
@@ -30,14 +30,6 @@ export default function Home() {
     }
   }
 
-  useEffect(() => {
-    document.title = "KOMASS";
-    document
-      .querySelector('meta[name="description"]')
-      ?.setAttribute("content", "All in one social media blog app.");
-  }, []);
-
-  
 
   return (
     <div className="flex m-5 flex-col gap-6">
