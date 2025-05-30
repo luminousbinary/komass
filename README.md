@@ -28,6 +28,15 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+### Login and Password
+
+To access the application, use the following credentials:
+
+- **Username:** `admin`
+- **Password:** `password123`
+
+Make sure to change these default credentials in a production environment for security purposes.
+
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
 
