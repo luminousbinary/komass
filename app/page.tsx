@@ -12,28 +12,16 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
-// const mockLogin = (username: string, password: string) => {
-//   // Mock authentication logic
-//   return username === "user" && password === "password";
-// };
-
 export default function Home() {
-  // const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();
    const [email, setEmail] = useState("")
   
-  //  const handleLogin = () => {
-  //   if (mockLogin(username, password)) {
-  //     router.push("/feed");
-  //   } else {
-  //     setError("Invalid username or password \n Hint: try 'user' and 'password'");
-  //   }
-  // };
   const handleLogin = () => {
     // Dummy logic — replace with real auth
     if (email === "admin@yahoo.com" && password === "password") {
+      setError("");
       console.log("✅ Logged in!")
             router.push("/feed");
 
@@ -93,12 +81,6 @@ export default function Home() {
               </Button>
               
             </div>
-            {/* <div className="mt-4 text-center text-sm">
-              Don&apos;t have an account?{" "}
-              <a href="#" className="underline underline-offset-4">
-                Sign up
-              </a>
-            </div> */}
           </form>
         </CardContent>
       </Card>
@@ -107,29 +89,3 @@ export default function Home() {
 }
 
 
-
-
-
-
-//   return (
-//     <div className="login-page">
-//       <h1>Login</h1>
-//       <div className="login-form">
-//         <input
-//           type="text"
-//           placeholder="Username"
-//           value={username}
-//           onChange={(e) => setUsername(e.target.value)}
-//         />
-//         <input
-//           type="password"
-//           placeholder="Password"
-//           value={password}
-//           onChange={(e) => setPassword(e.target.value)}
-//         />
-//         <button onClick={handleLogin}>Login</button>
-//         {error && <p className="error">{error}</p>}
-//       </div>
-//     </div>
-//   );
-// }
