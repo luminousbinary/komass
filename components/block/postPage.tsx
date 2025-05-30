@@ -2,17 +2,18 @@
 import { useState, useEffect } from "react";
 import { useParams } from 'next/navigation';
 
-import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import { getPostById } from '@/lib/utils'
 import { useRouter } from 'next/navigation';
+import { Metadata, PostData } from "@/lib/interface";
 
 
 
 
 export function PostComponent() {
-    const [postData, setPostData] = useState<any>(null);
-    const [metadata, setMetadata] = useState<any>(null);
+
+    const [postData, setPostData] = useState<PostData | null>(null);
+    const [metadata, setMetadata] = useState<Metadata | null>(null);
     const [error, setError] = useState<string | null>(null);
     const params = useParams();
     const router = useRouter();
@@ -41,11 +42,12 @@ export function PostComponent() {
                 });
             } catch (err) {
                 setError("An error occurred while fetching the post.");
+                console.error("Error fetching post data:", err, metadata);
             }
         }
 
         fetchPostData();
-    }, [params.id]);
+    }, [metadata, params.id]);
 
     if (error) {
         return <Error message={error} />;

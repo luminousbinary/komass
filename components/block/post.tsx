@@ -1,17 +1,10 @@
+import type { PostData} from "@/lib/interface";
 import Image from "next/image";
 import Link from "next/link";
 
-export type Post = {
-  id: string;
-  title: string;
-  author: {
-    name: string;
-  }
-  content: string;
-  createdAt: string;
-};
 
-export default function Post({ post }: { post: Post }) {
+
+export default function Post({ post }: { post: PostData }) {
   return (
     <Link href={`/feed/${post.id}`} className="no-underline">
 
@@ -32,9 +25,9 @@ export default function Post({ post }: { post: Post }) {
             By {post.author.name} • {new Date(post.createdAt).toDateString()}
           </p>
           <p className="text-gray-800">
-            {post.content.length > 100
+            {post.content && post.content.length > 100
               ? post.content.slice(0, 100) + "..."
-              : post.content}
+              : post.content || ""}
           </p>
         </div>
       </div>
