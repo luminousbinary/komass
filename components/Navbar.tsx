@@ -1,7 +1,6 @@
 "use client";
 import Link from 'next/link';
 import { useState } from 'react';
-import { SearchModal } from './block/searchModal'; // Adjust the path as needed
 
 const Navbar = () => {
         

@@ -1,6 +1,5 @@
 "use client"
 import Post from "@/components/block/post";
-import { SearchModal } from "@/components/block/searchModal";
 import { getAllPost } from "@/lib/utils";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
