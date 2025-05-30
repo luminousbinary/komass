@@ -5,8 +5,6 @@ import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useSearchParams, useRouter } from "next/navigation";
 import { PostData as PostInterface } from "@/lib/interface";
-
-
 import { Suspense } from "react";
 
 function FeedPageContent() {
@@ -23,6 +21,7 @@ function FeedPageContent() {
 
 
   const { ref, inView } = useInView();
+
 
   // Fetch feed data
   useEffect(() => {

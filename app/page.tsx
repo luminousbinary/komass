@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button"
 import {
@@ -30,6 +30,15 @@ export default function Home() {
     }
   }
 
+  useEffect(() => {
+    document.title = "KOMASS";
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", "All in one social media blog app.");
+  }, []);
+
+  
+
   return (
     <div className="flex m-5 flex-col gap-6">
       <Card>
@@ -47,7 +56,7 @@ export default function Home() {
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  placeholder="admin@yahoo.com"
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -67,6 +76,7 @@ export default function Home() {
                   id="password"
                   type="password"
                   required
+                  placeholder="password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                 />

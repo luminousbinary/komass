@@ -1,6 +1,5 @@
 
 "use client";
-
 import { useState, useEffect } from "react";
 import { PostComponent } from "@/components/block/postPage";
 
