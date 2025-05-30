@@ -4,8 +4,6 @@ import { useState } from 'react';
 
 const Navbar = () => {
         
-    const [showModal, setShowModal] = useState(false);
-
     return (
         <nav className="bg-gray-800 text-white">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">

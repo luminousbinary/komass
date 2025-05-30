@@ -4,10 +4,13 @@ import { getAllPost } from "@/lib/utils";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+// import { useRouter } from "next/router";
+import { useSearchParams, useRouter } from "next/navigation";
 
 
 function FeedPage() {
   const ITEMS_PER_LOAD = 5;
+  const router = useRouter();
   const [visibleItems, setVisibleItems] = useState<{ id: string; title: string; content: string; category:string ; createdAt: string; author: { name: string; } }[]>([]);
   const [page, setPage] = useState(1);
   const [demoFeed, setDemoFeed] = useState<{ id: string; title: string; content: string; category:string ; createdAt: string; author: { name: string; } }[]>([]);
@@ -29,6 +32,26 @@ function FeedPage() {
     };
     fetchFeed();
   }, []);
+
+  // Preserve filter state in URL query parameters
+
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const searchTermParam = searchParams.get("searchTerm");
+    const categoryParam = searchParams.get("category");
+    if (searchTermParam) setSearchTerm(searchTermParam);
+    if (categoryParam) setSelectedCategory(categoryParam);
+  }, [searchParams]);
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams();
+    if (searchTerm) queryParams.set("searchTerm", searchTerm);
+    if (selectedCategory) queryParams.set("category", selectedCategory);
+
+    const newUrl = `${window.location.pathname}?${queryParams.toString()}`;
+    router.push(newUrl);
+  }, [searchTerm, selectedCategory]);
 
   useEffect(() => {
     const updateVisibleItems = () => {
