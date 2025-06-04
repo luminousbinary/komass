@@ -2017,3 +2017,19 @@ export async function getAllPost() {
     return demoFeed;
   
 }
+
+// <div className="flex space-x-2">
+//           {defaultCategories.map((category) => (
+//             <button
+//               key={category}
+//               onClick={() => setSelectedCategory(category)}
+//               className={`px-4 py-2 border rounded ${
+//           selectedCategory === category
+//             ? "bg-blue-600 text-white dark:bg-blue-400 dark:text-black"
+//             : "bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 dark:border-gray-600"
+//               } focus:outline-none`}
+//             >
+//               {category}
+//             </button>
+//           ))}
+//         </div>

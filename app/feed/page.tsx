@@ -78,7 +78,9 @@ function FeedPageContent() {
 
 
   return (
+
     <div className="max-w-2xl mx-auto p-4">
+
       <h1 className="text-3xl font-bold mb-6"> Feed</h1>
       <input
         type="text"
@@ -106,9 +108,12 @@ function FeedPageContent() {
 
           <ul className="space-y-2">
             {visibleItems.map((item) => (
-              <li key={item.id} className="p-2 border border-gray-300 rounded">
+
+              <li key={item.id} className="p-2 ">
                 <Post post={item} />
               </li>
+
+
             ))}
           </ul>
 
@@ -131,14 +136,16 @@ function FeedPageContent() {
       {visibleItems.length >= demoFeed.length && (
         <p className="text-center text-gray-400 mt-6">No more data</p>
       )}
+
     </div>
+
   );
 }
 
 export default function FeedPage() {
   return (
     <Suspense fallback={<div>Loading...</div>}>
-      <FeedPageContent />
+        <FeedPageContent />
     </Suspense>
   );
 }
